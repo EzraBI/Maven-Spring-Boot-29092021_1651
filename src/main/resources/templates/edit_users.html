@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container text-center">
+    <h2>Sign Up:- Register Users</h2>
+    <br>
+
+    <form th:action="@{/process_register}" method="post"
+          onSubmit="if(!confirm('Do you want to Save User?'))
+    {return false;}"
+          style="max-width: 600px; margin: 0 auto;"
+          th:object="${editUser}">
+
+        <div>
+            <div class="form-group row">
+                <label class="col-form-label col-4">user Id:</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" th:field="*{id}" required readonly/>
+                </div>
+            </div>
+
+        <div>
+            <div>
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Email:</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control"
+                               th:field="*{email}" required minlength="2" maxlength="250"/>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group row">
+                    <label class="col-form-label col-4">First_Name:</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control"
+                               th:field="*{firstName}" required minlength="2" maxlength="250"/>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Last_Name:</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control"
+                               th:field="*{lastName}" required minlength="2" maxlength="250"/>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Password:</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control"
+                               th:field="*{password}" required minlength="8" maxlength="250"/>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
